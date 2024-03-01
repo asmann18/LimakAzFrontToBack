@@ -1,0 +1,60 @@
+﻿@model List<NewsGetDto>
+
+<div id="panel" class="snipcss-oDhEE">
+
+    <main class="container">
+        <div class="news">
+            <div class="block">
+                <div class="block-header mt-0">
+                    <h2 class="title page-title">
+                        Xəbərlər və yeniliklər
+                    </h2>
+                    <ol class="breadcrumb">
+                    </ol>
+                </div>
+                <div class="block-body">
+                    <div class="news-list">
+                        <div class="row">
+                            @foreach (NewsGetDto news in Model)
+                            {
+                                <div class="col-sm-6 col-md-4 col-12">
+                                    <a asp-action="Detail" asp-route-id="@news.Id" class="news-card">
+                                        <article class="card">
+                                            <img src="@news.ImagePath"
+                                                 alt="@news.Subject" class="card-img-top">
+                                            <div class="card-body">
+                                                <h4 class="card-title">
+                                                    @news.Subject
+                                                </h4>
+                                                <p class="card-text news-card-date">
+                                                    <img src="https://limak.az/new_front/assets/img/icons/calendar.svg">
+                                                    <span>
+                                                        @news.CreatedTime
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <ul role="navigation" class="pagination">
+                        <li aria-disabled="true" aria-label="« Əvvəl" class="page-item disabled">
+                            <span aria-hidden="true" class="page-link">
+                                ‹‹‹
+                            </span>
+                        </li>
+
+                        <li class="page-item">
+                            <a href="https://limak.az/az/news?page=2" rel="next" aria-label="Sonra »"
+                               class="page-link">
+                                ›››
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

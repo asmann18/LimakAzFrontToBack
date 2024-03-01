@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,16 +18,17 @@
             <div class="container-nav">
                 <div class="navbar-wrapper row">
                     <div class="navbar-logo col-md-2">
-                        <a href="index.html" class="logo">
+                        <a asp-controller="Index" asp-action="Index" class="logo">
                             <img src="~/assets/images/logo.svg" alt="">
                         </a>
                     </div>
                     <ul class="nav-list col-md-4">
-                        <li class="nav-list-item"><a href="tariffs.html">Tariflər</a></li>
-                        <li class="nav-list-item"><a href="calculator.html">Kalkulyator</a></li>
-                        <li class="nav-list-item"><a href="shop.html">Mağazalar</a></li>
-                        <li class="nav-list-item"><a href="contact.html">Əlaqə</a></li>
-                        <li class="nav-list-item"><a href="question.html">FAQ</a></li>
+                        
+                        <li class="nav-list-item"><a asp-controller="Tariff" asp-action="Index">Tariflər</a></li>
+                        <li class="nav-list-item"><a asp-controller="Calculator" asp-action="Index">Kalkulyator</a></li>
+                        <li class="nav-list-item"><a asp-controller="Shop" asp-action="Index">Mağazalar</a></li>
+                        <li class="nav-list-item"><a asp-controller="Contact" asp-action="Index">Əlaqə</a></li>
+                        <li class="nav-list-item"><a asp-controller="Question" asp-action="Index">FAQ</a></li>
                     </ul>
                     <div class="navbar-right-col col-md-6">
                         <a href="#" class="navbar-contact-phone">
@@ -71,20 +73,31 @@
                                 </div>
                             </div>
                         </div> -->
-                        <a href="login.html" class="button">Daxil ol</a>
+                        @{
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <a asp-controller="UserPanel" asp-action="Index" class="button">@User.FindFirstValue("FullName")</a>
+
+                            }
+                            else
+                            {
+
+                                <a asp-controller="Login" asp-action="Index" class="button">Daxil ol</a>
+                            }
+                        }
                     </div>
                 </div>
             </div>
         </nav>
     </header>
     <!-- Header End -->
-            @RenderBody()
+    @RenderBody()
     <!-- Footer Start -->
     <footer style="margin-top: 0;">
         <div class="container-footer">
             <div class="footer-main row">
                 <div class="footer-left col-md-4">
-                    <a href="index.html" class="footer-logo">
+                    <a asp-controller="Index" asp-action="Index" class="footer-logo">
                         <img src="~/assets/images/logo-white.svg" alt="">
                     </a>
                     <div class="footer-app">
@@ -98,18 +111,18 @@
                 </div>
                 <div class="footer-navigation-menu col-md-4">
                     <ul class="footer-nav-list">
-                        <li><a href="tariffs.html">Tariflər</a></li>
-                        <li><a href="calculator.html">Kalkulyator</a></li>
-                        <li><a href="shop.html">Mağazalar</a></li>
+                        <li><a asp-controller="Tariff" asp-action="Index">Tariflər</a></li>
+                        <li><a asp-controller="Calculator" asp-action="Index">Kalkulyator</a></li>
+                        <li><a asp-controller="Shop" asp-action="Index">Mağazalar</a></li>
                     </ul>
                     <ul class="footer-nav-list">
-                        <li><a href="terms.html">Qaydalar</a></li>
-                        <li><a href="about.html">Haqqımızda</a></li>
-                        <li><a href="question.html">FAQ</a></li>
+                        <li><a asp-controller="Terms" asp-action="Index">Qaydalar</a></li>
+                        <li><a asp-controller="About" asp-action="Index">Haqqımızda</a></li>
+                        <li><a asp-controller="Question" asp-action="Index">FAQ</a></li>
                     </ul>
                     <ul class="footer-nav-list">
-                        <li><a href="privacy.html">Gizlilik şərtləri</a></li>
-                        <li><a href="contact.html">Əlaqə</a></li>
+                        <li><a asp-controller="Privacy" asp-action="Index">Gizlilik şərtləri</a></li>
+                        <li><a asp-controller="Contact" asp-action="Index">Əlaqə</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact col-md-4">
@@ -140,6 +153,10 @@
     <!-- Footer End -->
     <script src="~/assets/js/index.js"></script>
     <script src="~/assets/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/3d33933aa8.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
 
 </body>
 

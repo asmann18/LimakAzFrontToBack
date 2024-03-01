@@ -1,4 +1,6 @@
-﻿<!-- Main Start -->
+﻿@model LoginDto
+
+<!-- Main Start -->
 <main id="main"
       style="background: url(./assets/images/limak_bg.jpg) no-repeat; background-size: 100%; background-position: top center;"
       class="bg-full">
@@ -36,14 +38,18 @@
                                                                 </h1>
                                                             </div>
                                                             <form action="" method="post" class="card-auth-form">
-                                                                <input id="login-email" name="email" type="email"
+
+                                                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                                <input id="login-email" name="email" asp-for="Email" type="email"
                                                                        placeholder="E-mail*" required="required"
                                                                        aria-required="true" class="form-control">
+                                                                <span asp-validation-for="Email" class="text-danger"></span>
                                                                 <div role="group" class="input-group">
                                                                     <input id="login-password" name="password"
                                                                            type="password" placeholder="Şifrə*"
-                                                                           required="required" aria-required="true"
+                                                                           required="required" asp-for="Password" aria-required="true"
                                                                            class="form-control">
+                                                                    <span asp-validation-for="Password" class="text-danger"></span>
                                                                     <a class="visiblity-btn-password showPass">
                                                                         <span aria-hidden="true"
                                                                               class="show-password hide-eye"></span>
@@ -89,7 +95,7 @@
                                                                     </div>
                                                                     <div class="col-6">
                                                                         <div class="login-submit-reg">
-                                                                            <a href="register.html"
+                                                                            <a asp-action="Index" asp-controller="Register"
                                                                                class="btn btn-primary btn-submit">
                                                                                 QEYDİYYAT
                                                                             </a>

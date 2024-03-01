@@ -1,4 +1,6 @@
-﻿<!-- Main Start -->
+﻿@model RegisterDto
+
+<!-- Main Start -->
 <main id="main"
       style="background: url(./assets/images/limak_bg.jpg) no-repeat; background-size: 100%; background-position: top center;"
       class="bg-full">
@@ -24,50 +26,82 @@
                                 İSTİFADƏÇİ QEYDİYYATI
                             </h1>
                         </div>
-                        <form action="" class="form-reg">
+                        <form method="post" class="form-reg">
                             <div class="row">
                                 <div class="col-md-12 col-12">
                                     <h3 class="form-title">
                                         Profil məlumatları
                                     </h3>
                                     <div class="row">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
                                         <div class="col-6">
-                                            <input id="reg-name" type="text" placeholder="Ad" required="required"
+                                            <input id="reg-name" placeholder="Ad" asp-for="Name" required="required"
                                                    autocomplete="none" aria-required="true" class="form-control">
+                                            <span asp-validation-for="Name" class="text-danger"></span>
                                         </div>
                                         <div class="col-6">
-                                            <input id="reg-name" type="text" placeholder="Soyad" required="required"
+                                            <input id="reg-surname" placeholder="Soyad" asp-for="Surname" required="required"
                                                    autocomplete="none" aria-required="true" class="form-control">
+                                            <span asp-validation-for="Surname" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <input id="reg-seria-number" placeholder="Seria nömrəsi" asp-for="SeriaNumber" required="required"
+                                                   autocomplete="none" aria-required="true" class="form-control">
+                                            <span asp-validation-for="SeriaNumber" class="text-danger"></span>
                                         </div>
                                         <div class="col-6">
-                                            <input id="reg-name" type="email" placeholder="E-mail"
+                                            <input id="reg-fin-code" placeholder="FİN kod" asp-for="FinCode" required="required"
+                                                   autocomplete="none" aria-required="true" class="form-control">
+                                            <span asp-validation-for="FinCode" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <input id="reg-birthday" placeholder="Doğum günü" asp-for="Birtday" required="required"
+                                                   autocomplete="none" aria-required="true" class="form-control">
+                                            <span asp-validation-for="Birtday" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <input id="reg-email" asp-for="Email" placeholder="E-mail"
                                                    required="required" autocomplete="none" aria-required="true"
                                                    class="form-control">
+                                            <span asp-validation-for="Email" class="text-danger"></span>
                                         </div>
                                         <div class="col-6">
-                                            <input id="reg-name" type="number" placeholder="Telefon"
+                                            <input id="reg-phone-number" asp-for="PhoneNumber" type="number" placeholder="Telefon"
                                                    required="required" autocomplete="none" aria-required="true"
                                                    class="form-control">
+                                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                                         </div>
                                         <div class="pass col-md-6 col-12">
-                                            <input id="password" type="password" placeholder="Şifrə"
+                                            <input id="password" type="password" asp-for="Password" placeholder="Şifrə"
                                                    required="required" autocomplete="new-password" aria-required="true"
                                                    class="form-control">
                                             <a class="visiblity-btn showPass">
                                                 <span aria-hidden="true" class="show_p hide-eye"></span>
                                             </a>
+                                            <span asp-validation-for="Password" class="text-danger"></span>
                                         </div>
                                         <div class="pass col-md-6 col-12">
-                                            <input id="password_confirmation" type="password"
+                                            <input id="password_confirmation" asp-for="ConfirmPassword" type="password"
                                                    placeholder="Şifrənin təkrarı" required="required"
                                                    autocomplete="new-password" aria-required="true"
                                                    class="form-control">
                                             <a class="visiblity-btn showPass">
                                                 <span aria-hidden="true" class="show_p hide-eye"></span>
                                             </a>
+                                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                                         </div>
                                         <div class="col-12">
-                                            <select id="deliveryOfiice" class="custom-select">
+                                            <input id="reg-location" placeholder="Ünvan" asp-for="Location" required="required"
+                                                   autocomplete="none" aria-required="true" class="form-control">
+                                            <span asp-validation-for="Location" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <select id="deliveryOfiice" asp-for="WarehouseId" class="custom-select">
                                                 <option disabled="disabled" value="">Çatdırılma ofisi</option>
                                                 <option value="1">Bakı - İçərişəhər</option>
                                                 <option value="6">Bakı - Xalqlar Dostluğu</option>
@@ -76,12 +110,39 @@
                                                 <option value="2">Gəncə</option>
                                                 <option value="4">Zaqatala</option>
                                             </select>
+                                            <span asp-validation-for="WarehouseId" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <select id="deliveryOfiice" asp-for="GenderId" class="custom-select">
+                                                <option disabled="disabled" value="">Cins</option>
+                                                <option value="1">Male</option>
+                                                <option value="2">Female</option>
+                                            </select>
+                                            <span asp-validation-for="GenderId" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <select id="deliveryOfiice" asp-for="UserPositionId" class="custom-select">
+                                                <option value="1">Fiziki şəxs</option>
+                                                <option value="2">Mülki şəxs</option>
+                                            </select>
+                                            <span asp-validation-for="UserPositionId" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <select id="deliveryOfiice" asp-for="CitizenshipId" class="custom-select">
+                                                <option disabled="disabled" value="">Milliyət</option>
+                                                <option value="1">Azərbaycanlı</option>
+                                                <option value="2">Digər</option>
+                                            </select>
+                                            <span asp-validation-for="CitizenshipId" class="text-danger"></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-reg-footer">
-                                <button class="btn btn-submit form-reg-btn btn-primary">
+                                <button type="submit" class="btn btn-submit form-reg-btn btn-primary">
                                     <span>QEYDİYYAT</span>
                                 </button>
                             </div>

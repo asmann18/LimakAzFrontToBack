@@ -1,4 +1,8 @@
-﻿<!-- Main Start -->
+﻿@model List<OrderGetDto>
+@{
+    int count = 1;
+}
+<!-- Main Start -->
 <main id="main"
       style="background: url(./assets/images/limak_bg.jpg) no-repeat; background-size: 100%; background-position: top center;"
       class="bg-full">
@@ -21,218 +25,7 @@
             </div>
             <div class="row">
                 <!-- Aside -->
-                <div class="col-md-4 col-lg-3 col-12">
-                    <aside class="aside">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="list-group user-nav ">
-                                    <div class="list-group-item mt-0">
-                                        <i class="far fa-user"></i>
-                                        <h3 class="user-nav-title upper">
-                                            Yusif Quluzadə
-                                        </h3>
-                                    </div>
-                                    <div class="list-group-item">
-                                        <i class="far fa-user-circle"></i>
-                                        <h3 class="user-nav-title">
-                                            <span>Müştəri̇ kodu</span>
-                                            <strong>9078132</strong>
-                                        </h3>
-                                    </div>
-                                    <div class="list-group-item user-nav-notf">
-                                        <a href="notification.html">
-                                            <i class="fas fa-bell"></i>
-                                            <h3 class="user-nav-title">
-                                                Bildirişlər
-                                            </h3>
-                                        </a>
-                                    </div>
-                                    <div class="list-group-item">
-                                        <i class="fas fa-info-circle"></i>
-                                        <div class="user-nav-group">
-                                            <h4 class="user-nav-group-title">
-                                                Cari ay
-                                            </h4>
-                                            <div class="user-nav-group-label">
-                                                0.00
-                                                <span class="manat">$</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div>
-                                    <div class="progress">
-                                        <div class="progress-bar custom-progress-small">
-                                            <span>0%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-group aside-nav-top">
-                                    <div class="list-group-item aside-nav mt-0">
-                                        <a href="user-panel.html">
-                                            <i class="fas fa-shopping-bag"></i>
-                                            <h3 class="aside-nav-title">Sifarişlər</h3>
-                                        </a>
-                                    </div>
-                                    <div class="list-group-item aside-nav">
-                                        <a href="report.html">
-                                            <i class="far fa-file-alt"></i>
-                                            <h3 class="aside-nav-title">Bəyan Gözləyən</h3>
-                                        </a>
-                                    </div>
-                                    <div class="list-group-item aside-nav">
-                                        <a href="package.html">
-                                            <i class="fas fa-box-open"></i>
-                                            <h3 class="aside-nav-title">Bağlamalar</h3>
-                                        </a>
-                                    </div>
-                                    <div class="list-group-item aside-nav">
-                                        <a href="adress.html">
-                                            <i class="fas fa-thumbtack"></i>
-                                            <h3 class="aside-nav-title">Xaricdəki ünvanlar</h3>
-                                        </a>
-                                    </div>
-                                    <div class="list-group-item aside-nav">
-                                        <a href="courier.html">
-                                            <i class="fas fa-user-tag"></i>
-                                            <h3 class="aside-nav-title">Kuryer</h3>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="list-group aside-account">
-                                    <div class="list-group-item mt-0 aside-nav">
-                                        <a href="balance.html">
-                                            <i class="fas fa-dollar-sign"></i>
-                                            <h3 class="aside-account-title">
-                                                Balansınız
-                                            </h3>
-                                        </a>
-                                    </div>
-                                    <div class="list-group-item aside-nav">
-                                        <a href="up-setting.html">
-                                            <i class="fas fa-user-cog"></i>
-                                            <h3 class="aside-account-title">
-                                                Tənzimləmələr
-                                            </h3>
-                                        </a>
-                                    </div>
-                                    <div class="list-group-item aside-nav">
-                                        <a href="#">
-                                            <i class="fas fa-power-off"></i>
-                                            <h3 class="aside-account-title">
-                                                Hesabdan çıx
-                                            </h3>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-custom">
-                            <div class="form-exc">
-                                <div class="form-exc-body">
-                                    <div>
-                                        <div class="form-exc-header">
-                                            <div class="form-calc-title">
-                                                <img src="~/assets/images/calculator.svg" alt="">
-                                                <h3>Məzənnə kalkulyatoru</h3>
-                                            </div>
-                                        </div>
-                                        <form action="">
-                                            <div class="input-group input-group-btn-append mb-sm-1">
-                                                <input type="text" class="form-control" placeholder="0.0" min="0">
-                                                <div class="input-group-append">
-                                                    <div class="dropdown b-dropdown btn-group">
-                                                        <button type="button" class="btn dropdown-toggle">
-                                                            USD
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a href="#" class="dropdown-item">AZN</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#" class="dropdown-item active">USD</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#" class="dropdown-item">TRY</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="input-group input-group-btn-append mb-sm-1 mt-0">
-                                                <input type="text" class="form-control" placeholder="0.0" min="0">
-                                                <div class="input-group-append">
-                                                    <div class="dropdown b-dropdown btn-group">
-                                                        <button type="button" class="btn dropdown-toggle">
-                                                            AZN
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a href="#" class="dropdown-item active">AZN</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#" class="dropdown-item ">USD</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#" class="dropdown-item">TRY</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p class="form-exc-note">
-                                                Günün məzənnəsinə uyğun hesablanır.
-                                            </p>
-                                        </form>
-
-                                        <div class="form-exc-table">
-                                            <div class="form-calc-title">
-                                                <img src="~/assets/images/change.svg" alt="">
-                                                <h3>Günlük məzənnə</h3>
-                                            </div>
-                                            <ul>
-                                                <li>
-                                                    <div class="currency-container">
-                                                        <div class="left-side">
-                                                            <img src="~/assets/images/tr-circle.svg" alt="">
-                                                            <span>1</span>
-                                                        </div>
-                                                        <div class="right-side">
-                                                            <strong>TRY</strong>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="currency-container">
-                                                        <div class="left-side">
-                                                            <img src="~/assets/images/az-circle.svg" alt="">
-                                                            <span> 0.1686</span>
-                                                        </div>
-                                                        <div class="right-side">
-                                                            <strong>AZN</strong>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="currency-container">
-                                                        <div class="left-side">
-                                                            <img src="~/assets/images/usa-circle.svg" alt="">
-                                                            <span> 0.0992</span>
-                                                        </div>
-                                                        <div class="right-side">
-                                                            <strong>USD</strong>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
+                @await Component.InvokeAsync("UserPanel")
                 <!-- Content -->
                 <div class="col-sm-12 col-md-8 col-lg-9">
                     <div>
@@ -262,11 +55,96 @@
                                     <div data-id="1"
                                          class="order-list tab-content card-tabs-body active active-tab">
                                         <div>
-                                            <div class="card order-item">
-                                                <div class="order-item-title">
-                                                    <h6>Türkiyə: anbarında bəyan gözləyən bağlamanız yoxdur.</h6>
+                                            <div data-id="1" class="order-item order-item-package active active-tab">
+                                                <div class="card mb20">
+                                                    <div class="table-responsive">
+                                                        <table class="table order-table package-table">
+                                                            <thead class="align-center mobile-none">
+                                                                <tr>
+                                                                    <th scope="col">No</th>
+                                                                    <th scope="col">Sifariş№</th>
+                                                                    <th scope="col">Qiymət</th>
+                                                                    <th scope="col">Status</th>
+                                                                    <th scope="col">Əməliyyat</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach (OrderGetDto order in Model)
+                                                                {
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="d-flex v-center">
+                                                                                <span>@(count++)</span>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="d-flex v-center">
+                                                                                <span>LMK @order.Id</span>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span class="d-flex v-center">@order.OrderTotalPrice @(order.CountryId == 1 ? "TRY" : "USD")</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span class="d-flex v-center upper">@order.Status.Name</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="d-flex flex-end">
+                                                                                <button data-target="1"
+                                                                                        class="btn btn-action btn-orange btn-secondary">
+                                                                                    <span>Bax</span>
+                                                                                </button>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="package-details">
+                                                                        <td colspan="6" class="padding-0">
+                                                                            <div data-id="1" class="collapse">
+                                                                                <table class="table order-table package-table">
+                                                                                    <tbody class="detail-table">
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div class="detail-table-content">
+                                                                                                    <strong>Sifariş tarixi</strong>
+                                                                                                    <span>2021-05-27 18:25:52</span>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div class="detail-table-content">
+                                                                                                    <strong>Çəkisi</strong>
+                                                                                                    <span>0.400 кq</span>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div class="detail-table-content">
+                                                                                                    <strong>Qiymət TRY</strong>
+                                                                                                    <span>139.96 TRY</span>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div class="detail-table-content">
+                                                                                                    <strong>İzləmə № </strong>
+                                                                                                    <span>667341</span>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td class="flex-end">
+                                                                                                <button class="btn btn-action btn-blue btn-secondary">
+                                                                                                    Izlə
+                                                                                                </button>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                     <div data-id="2" class="order-list tab-content card-tabs-body active-tab">

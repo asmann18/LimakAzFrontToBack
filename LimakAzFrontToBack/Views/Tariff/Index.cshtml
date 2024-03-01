@@ -1,4 +1,5 @@
-﻿<!-- Main Start -->
+﻿@model TariffVM
+<!-- Main Start -->
 <main id="main"
       style="background: url(./assets/images/limak_bg.jpg) no-repeat; background-size: 100%; background-position: top center;"
       class="bg-full">
@@ -61,26 +62,14 @@
                                         </ul>
                                         <div class="tab-content">
                                             <ul>
-                                                <li>
-                                                    <div class="weight"><strong>0 kq - 0.1 kq</strong></div>
-                                                    <div class="price"><strong>1.00</strong> $</div>
-                                                </li>
-                                                <li>
-                                                    <div class="weight"><strong>0.1 кq - 0.25 кq</strong></div>
-                                                    <div class="price"><strong> 2.00 </strong> $</div>
-                                                </li>
-                                                <li>
-                                                    <div class="weight"><strong>0.25 kq - 0.5 kq</strong></div>
-                                                    <div class="price"><strong>3.00</strong> $</div>
-                                                </li>
-                                                <li>
-                                                    <div class="weight"><strong>0.5 kq - 0.7 kq</strong></div>
-                                                    <div class="price"><strong>4.00</strong> $</div>
-                                                </li>
-                                                <li>
-                                                    <div class="weight"><strong>0.7 kq - 1 kq</strong></div>
-                                                    <div class="price"><strong>4.50</strong> $</div>
-                                                </li>
+                                                @foreach (TariffGetDto tariff in Model.TurkeyTariffs)
+                                                {
+                                                    <li>
+                                                        <div class="weight"><strong>@tariff.MinValue kq - @tariff.MaxValue kq</strong></div>
+                                                        <div class="price"><strong>@tariff.Price</strong> ₼</div>
+                                                    </li>
+
+                                                }
                                             </ul>
                                         </div>
                                     </div>
@@ -127,26 +116,14 @@
                                         </ul>
                                         <div class="tab-content">
                                             <ul>
-                                                <li>
-                                                    <div class="weight"><strong>0 kq - 0.1 kq</strong></div>
-                                                    <div class="price"><strong>1.00</strong> $</div>
-                                                </li>
-                                                <li>
-                                                    <div class="weight"><strong>0.1 кq - 0.25 кq</strong></div>
-                                                    <div class="price"><strong> 2.00 </strong> $</div>
-                                                </li>
-                                                <li>
-                                                    <div class="weight"><strong>0.25 kq - 0.5 kq</strong></div>
-                                                    <div class="price"><strong>3.00</strong> $</div>
-                                                </li>
-                                                <li>
-                                                    <div class="weight"><strong>0.5 kq - 0.7 kq</strong></div>
-                                                    <div class="price"><strong>4.00</strong> $</div>
-                                                </li>
-                                                <li>
-                                                    <div class="weight"><strong>0.7 kq - 1 kq</strong></div>
-                                                    <div class="price"><strong>4.50</strong> $</div>
-                                                </li>
+                                                @foreach (TariffGetDto tariff in Model.AmericaTariffs)
+                                                {
+                                                    <li>
+                                                        <div class="weight"><strong>@tariff.MinValue kq - @tariff.MaxValue kq</strong></div>
+                                                        <div class="price"><strong>@tariff.Price</strong> ₼</div>
+                                                    </li>
+
+                                                }
                                             </ul>
                                         </div>
                                     </div>

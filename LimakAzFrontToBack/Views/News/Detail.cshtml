@@ -1,0 +1,957 @@
+﻿@model NewsGetDto
+
+
+
+<style>
+    
+  body {  
+    font-size:1rem;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-weight:400;
+    line-height:1.5;
+    color:#212529;
+    text-align:left;
+    background:#f8f8f8!important;
+  }  
+* { 
+    box-sizing: border-box;
+} 
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    border: none; 
+    outline: 0; 
+    font-size: 100%;
+} 
+
+body { 
+    margin: 0; 
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; 
+    font-size: 1rem; 
+    font-weight: 400; 
+    line-height: 1.5; 
+    color: #212529; 
+    text-align: left; 
+    background-color: #fff;
+} 
+
+body { 
+    color: #373736; 
+    background: #f8f8f8!important;
+} 
+
+body { 
+    padding-top: 0;
+} 
+
+html { 
+    font-family: sans-serif; 
+    line-height: 1.15; 
+    -webkit-text-size-adjust: 100%; 
+    -webkit-tap-highlight-color: transparent;
+} 
+
+:root { 
+    --theme-color1: #232331; 
+    --theme-color2: #F15834; 
+    --theme-color3: #ff9205; 
+    --bg-theme-color1: var(--theme-color1); 
+    --bg-theme-color2: var(--theme-color2); 
+    --bg-theme-color3: var(--theme-color3); 
+    --border-theme-color1: var(--theme-color1); 
+    --border-theme-color2: var(--theme-color2); 
+    --border-theme-color3: var(--theme-color3); 
+    --headings-color: #003c38; 
+    --link-color: #352F27; 
+    --text-font: "Source Sans Pro",sans-serif; 
+    --title-font: "Source Sans Pro",sans-serif; 
+    --body-font-weight: 400; 
+    --h2-font-size: 42px; 
+    --h2-font-weight: 800; 
+    --sec-title-color: var(--headings-color); 
+    --sec-title-font-size: var(--h2-font-size); 
+    --sec-title-font-family: var(--title-font); 
+    --sec-title-font-weight: var(--h2-font-weight); 
+    --sec-title-subtitle-font-family: var(--text-font); 
+    --theme-light-background-text-color: var(--headings-color); 
+    --theme-color2-light: #F15834; 
+    --bg-theme-color1: #232331; 
+    --bg-theme-color2: #F15834; 
+    --bg-theme-color2-light: #F15834; 
+} 
+
+*,:after,:before { 
+    box-sizing: border-box;
+} 
+
+header { 
+    display: block;
+} 
+
+.mt-0 { 
+    margin-top: 0!important;
+} 
+
+.block-header { 
+    margin-top: 42px!important; 
+    margin-bottom: 22px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+} 
+
+ol { 
+    margin-top: 0; 
+    margin-bottom: 1rem;
+} 
+
+.breadcrumb { 
+    display: -ms-flexbox; 
+    display: flex; 
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap; 
+    padding: .75rem 1rem; 
+    margin-bottom: 1rem; 
+    list-style: none; 
+    background-color: #e9ecef; 
+    border-radius: .25rem;
+} 
+
+.breadcrumb { 
+    font-weight: 500; 
+    font-size: 13px; 
+    line-height: 18px; 
+    color: #373736; 
+    margin: 0; 
+    padding: 0; 
+    background: 0 0; 
+    border-radius: 0;
+} 
+
+.row { 
+    display: -ms-flexbox; 
+    display: flex; 
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap; 
+    margin-right: -15px; 
+    margin-left: -15px;
+} 
+
+.row { 
+    margin-left: -10px; 
+    margin-right: -10px;
+} 
+
+.breadcrumb-item { 
+    display: flex; 
+    align-items: center;
+} 
+
+.breadcrumb-item + .breadcrumb-item  { 
+    padding-left: .5rem;
+} 
+
+.breadcrumb-item.active { 
+    color: #6c757d;
+} 
+
+.breadcrumb-item.active { 
+    color: #373736;
+} 
+
+.breadcrumb-item + .breadcrumb-item  { 
+    padding-left: 10px; 
+    font-weight: 600;
+} 
+
+.breadcrumb-item + .breadcrumb-item::before { 
+    float: left; 
+    padding-right: .5rem; 
+    color: #6c757d; 
+    content: "/";
+} 
+
+.breadcrumb-item + .breadcrumb-item::before { 
+    content: ""; 
+    width: 8px; 
+    height: 11px; 
+    background: url(https://limak.az/new_front/assets/img/dashboard/icons/caret-right.svg) no-repeat; 
+    margin-right: 10px; 
+    padding: 0;
+} 
+
+.breadcrumb-item + .breadcrumb-item:hover::before { 
+    text-decoration: underline;
+} 
+
+.breadcrumb-item + .breadcrumb-item:hover::before { 
+    text-decoration: none;
+} 
+
+.col-12,.col-md-8 { 
+    position: relative; 
+    width: 100%; 
+    padding-right: 15px; 
+    padding-left: 15px;
+} 
+
+.col-12 { 
+    -ms-flex: 0 0 100%; 
+    flex: 0 0 100%; 
+    max-width: 100%;
+} 
+
+@@media (min-width: 768px){ 
+  .col-md-8 { 
+    -ms-flex: 0 0 66.666667%; 
+    flex: 0 0 66.666667%; 
+    max-width: 66.666667%;
+  } 
+}     
+
+[class*="col-"],[class*="col-md-"] { 
+    padding-left: 10px; 
+    padding-right: 10px;
+} 
+
+.col-12,.col-md-4 { 
+    position: relative; 
+    width: 100%; 
+    padding-right: 15px; 
+    padding-left: 15px;
+} 
+
+@@media (min-width: 768px){ 
+  .col-md-4 { 
+    -ms-flex: 0 0 33.333333%; 
+    flex: 0 0 33.333333%; 
+    max-width: 33.333333%;
+  } 
+}     
+
+a { 
+    color: #007bff; 
+    text-decoration: none; 
+    background-color: transparent;
+} 
+
+a { 
+    color: #373736; 
+    outline: 0;
+} 
+
+a:hover { 
+    color: #0056b3; 
+    text-decoration: underline;
+} 
+
+.breadcrumb-item a:hover { 
+    color: #f05835;
+} 
+
+article { 
+    display: block;
+} 
+
+.card { 
+    position: relative; 
+    display: -ms-flexbox; 
+    display: flex; 
+    -ms-flex-direction: column; 
+    flex-direction: column; 
+    min-width: 0; 
+    word-wrap: break-word; 
+    background-color: #fff; 
+    background-clip: border-box; 
+    border: 1px solid rgba(0,0,0,.125); 
+    border-radius: .25rem;
+} 
+
+.card { 
+    background: #fff; 
+    box-shadow: 0 4px 10px rgba(0,0,0,.05); 
+    border-radius: 8px;
+} 
+
+.news-card-details { 
+    border-radius: 8px; 
+    margin-bottom: 20px;
+} 
+
+.text-center { 
+    text-align: center!important;
+} 
+
+img { 
+    vertical-align: middle; 
+    border-style: none;
+} 
+
+img { 
+    max-width: 100%;
+} 
+
+.card-img-top { 
+    -ms-flex-negative: 0; 
+    flex-shrink: 0; 
+    width: 100%;
+} 
+
+.card-img-top { 
+    border-top-left-radius: calc(.25rem - 1px); 
+    border-top-right-radius: calc(.25rem - 1px);
+} 
+
+.card img  { 
+    width: auto;
+} 
+
+.news-card-details > img  { 
+    border-radius: 8px 8px 0 0;
+} 
+
+.card-body { 
+    -ms-flex: 1 1 auto; 
+    flex: 1 1 auto; 
+    min-height: 1px; 
+    padding: 1.25rem;
+} 
+
+.news-card-details .card-body  { 
+    padding: 22px 48px 48px;
+} 
+
+.btn-submit { 
+    background: linear-gradient(180deg,#fc7b5d 0%,#f05835 100%); 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    font-size: 15px; 
+    line-height: 18px; 
+    padding: 11px 38px;
+} 
+
+.btn-back { 
+    position: relative; 
+    padding: 11px 35px; 
+    min-width: 150px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+} 
+
+h4 { 
+    margin-top: 0; 
+    margin-bottom: .5rem;
+} 
+
+h4 { 
+    margin-bottom: .5rem; 
+    font-weight: 500; 
+    line-height: 1.2;
+} 
+
+h4 { 
+    font-size: 1.5rem;
+} 
+
+h4 { 
+    margin-bottom: 0;
+} 
+
+.card-title { 
+    margin-bottom: .75rem;
+} 
+
+.card-title { 
+    color: #373736;
+} 
+
+.news-card-details .card-title  { 
+    font-weight: 700; 
+    font-size: 24px; 
+    line-height: 26px; 
+    margin-bottom: 15px;
+} 
+
+p { 
+    margin-top: 0; 
+    margin-bottom: 1rem;
+} 
+
+p { 
+    font-size: 16px; 
+    line-height: 30px; 
+    font-weight: 400; 
+    color: #767676; 
+    margin: 0;
+} 
+
+.card-text { 
+    color: #373736;
+} 
+
+.card-text { 
+    font-size: 15px; 
+    line-height: 22px;
+} 
+
+.news-card-details .card-text  { 
+    font-size: 16.5px; 
+    line-height: 24px; 
+    margin-bottom: 0; 
+    margin-right: 10px;
+} 
+
+.news-details-footer { 
+    margin-top: 50px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+} 
+
+.btn-back img  { 
+    position: absolute; 
+    left: 11px; 
+    top: 50%; 
+    transform: translateY(-50%);
+} 
+
+.card-header { 
+    padding: .75rem 1.25rem; 
+    margin-bottom: 0; 
+    background-color: rgba(0,0,0,.03); 
+    border-bottom: 1px solid rgba(0,0,0,.125);
+} 
+
+.news-sidebar-header { 
+    position: relative; 
+    background-color: #fff; 
+    padding: 20px; 
+    padding-right: 50px; 
+    border: none; 
+    border-radius: 8px 8px 0 0!important;
+} 
+
+.card-header:first-child { 
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+} 
+
+.news-sidebar-list { 
+    padding: 20px; 
+    padding-top: 0;
+} 
+
+.header li { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0;
+} 
+
+.social-icon-one li { 
+    position: relative; 
+    margin-left: 0;
+} 
+
+li:first-child  { 
+    margin-right: 0;
+} 
+
+.header a { 
+    color: var(--link-color); 
+    text-decoration: none; 
+    font-weight: var(--body-font-weight); 
+    cursor: pointer; 
+    -webkit-transition: .3s; 
+    transition: .3s;
+} 
+
+li a  { 
+    position: relative; 
+    display: block; 
+    line-height: 40px; 
+    width: 35px; 
+    height: 40px; 
+    text-align: center; 
+    font-size: 14px; 
+    color: #fff; 
+    -webkit-transition: .3s; 
+    transition: .3s;
+} 
+
+.header a:hover { 
+    color: var(--theme-color1); 
+    text-decoration: none; 
+    outline: 0;
+} 
+
+ .social-icon-one li a:hover { 
+    color: var(--theme-color2);
+} 
+
+.news-card-date { 
+    display: flex; 
+    align-items: center;
+} 
+
+.news-details-share { 
+    display: flex; 
+    align-items: center; 
+    margin-left: 12px;
+} 
+
+h3 { 
+    margin-top: 0; 
+    margin-bottom: .5rem;
+} 
+
+h3 { 
+    margin-bottom: .5rem; 
+    font-weight: 500; 
+    line-height: 1.2;
+} 
+
+h3 { 
+    font-size: 1.75rem;
+} 
+
+h3 { 
+    margin-bottom: 0;
+} 
+
+.upper { 
+    text-transform: uppercase;
+} 
+
+.news-sidebar-title { 
+    font-weight: 700; 
+    font-size: 17px; 
+    line-height: 22px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+} 
+
+.news-sidebar-header img  { 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    right: 20px;
+} 
+
+.news-card { 
+    display: block; 
+    margin-bottom: 10px; 
+    text-decoration: none;
+} 
+
+.news-card:hover { 
+    text-decoration: none;
+} 
+
+.fa-facebook-square:before { 
+    content: "\f082";
+} 
+
+strong { 
+    font-weight: bolder;
+} 
+
+.news-card-date img  { 
+    margin-right: 10px;
+} 
+
+.news-card-date span  { 
+    font-weight: 500; 
+    font-size: 14px; 
+    line-height: normal; 
+    color: #9b9b9b;
+} 
+
+.news-details-share-button { 
+    width: 30px; 
+    min-width: 30px; 
+    height: 30px; 
+    border-radius: 50%; 
+    margin-right: 8px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+} 
+
+.flex-row { 
+    -ms-flex-direction: row!important; 
+    flex-direction: row!important;
+} 
+
+.news-sidebar-article { 
+    border: none; 
+    box-shadow: none; 
+    border-radius: 0; 
+    border-bottom: 1px solid rgba(213,213,213,.5); 
+    padding-bottom: 15px; 
+    margin-bottom: 15px;
+} 
+
+.main-menu .navigation > li { 
+    position: relative; 
+    float: left; 
+    padding: 20px 0; 
+    margin-right: 10px; 
+    -webkit-transition: .3s; 
+    transition: .3s;
+} 
+
+a  { 
+    font-size: 15px; 
+    font-weight: 600; 
+    line-height: 18px; 
+    margin-left: 12px; 
+    margin-right: 12px; 
+    color: #000;
+} 
+
+li > a  { 
+    position: relative; 
+    display: flex; 
+    text-align: center; 
+    opacity: 1; 
+    color: #373736; 
+    font-size: 16px; 
+    line-height: 30px; 
+    font-weight: 500; 
+    text-transform: uppercase; 
+    padding: 0; 
+    display: -webkit-box; 
+    display: -ms-flexbox; 
+    -webkit-transition: .3s; 
+    transition: .3s;
+} 
+
+.header a:hover, a:focus { 
+    color: var(--theme-color1); 
+    text-decoration: none; 
+    outline: 0;
+} 
+
+ .main-menu .navigation > li > a:hover { 
+    color: var(--theme-color2-light);
+} 
+
+.main-header .ui-btn:hover, .main-menu .navigation > li > a:hover, .main-menu .navigation > li > ul > li:hover > a, .main-menu .navigation > li > ul > li > ul > li > a:hover { 
+    color: var(--theme-color2-light);
+} 
+
+.card-img-left { 
+    border-top-left-radius: calc(.25rem - 1px); 
+    border-bottom-left-radius: calc(.25rem - 1px);
+} 
+
+.news-sidebar-article > img  { 
+    width: 94px; 
+    min-width: 94px; 
+    height: 63px; 
+    border-radius: 4px;
+} 
+
+.news-sidebar-article-body { 
+    padding-left: 10px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+} 
+
+a strong  { 
+    -webkit-transition: .3s; 
+    transition: .3s;
+} 
+
+.news-card .card-title  { 
+    font-weight: 700; 
+    font-size: 18px; 
+    line-height: 26px; 
+    color: #373736; 
+    margin-bottom: 20px;
+} 
+
+.news-card .card-title  { 
+    display: flex; 
+    align-items: center;
+} 
+
+.news-sidebar-article .card-title  { 
+    font-weight: 600; 
+    font-size: 13px; 
+    line-height: 18px; 
+    margin-bottom: 5px;
+} 
+
+.card-text:last-child { 
+    margin-bottom: 0;
+} 
+
+.news-sidebar-article .news-card-date img  { 
+    width: 12px; 
+    min-width: 12px; 
+    height: 12px;
+} 
+
+.news-sidebar-article .news-card-date span  { 
+    font-size: 12px;
+} 
+
+
+/* These were inline style tags. Uses id+class to override almost everything */
+#style-RXLgH.style-RXLgH {  
+   font-size: 22px;  
+}  
+#style-H9wZR.style-H9wZR {  
+   font-size: 16px;  
+}  
+#style-YiIDA.style-YiIDA {  
+   font-size: 18px;  
+}  
+#style-pLGrP.style-pLGrP {  
+   font-size: 16px;  
+}  
+#style-SNYJP.style-SNYJP {  
+   font-size: 18px;  
+}  
+#style-RLvof.style-RLvof {  
+   font-size: 16px;  
+}  
+#style-agF2e.style-agF2e {  
+   font-size: 18px;  
+}  
+#style-GRI7y.style-GRI7y {  
+   font-size: 20px;  
+}  
+#style-tjDde.style-tjDde {  
+   font-size: 16px;  
+}  
+#style-OVqpH.style-OVqpH {  
+   font-size: 18px;  
+}  
+#style-QJnNc.style-QJnNc {  
+   font-size: 16px;  
+}  
+#style-Uz9Cv.style-Uz9Cv {  
+   font-size: 16px;  
+}  
+#style-WRlee.style-WRlee {  
+   font-size: 18px;  
+}  
+#style-6IjjM.style-6IjjM {  
+   font-size: 16px;  
+}  
+#style-AABNc.style-AABNc {  
+   width: 27px;  
+}  
+#style-KbTLy.style-KbTLy {  
+   width: 27px;  
+}  
+
+</style>
+
+<div id="panel" class="snipcss-oDhEE">
+
+    <main class="container">
+        <div class="block snipcss0-3-333-334 snipcss-AZwUl">
+            <div class="block-header mt-0 snipcss0-4-334-335">
+                <h2 class="title page-title snipcss0-5-335-336">
+                    @Model.Subject
+                </h2>
+                <ol class="breadcrumb snipcss0-5-335-337">
+                    <li class="breadcrumb-item snipcss0-6-337-338">
+                        <a href="/az" target="_self" class="snipcss0-7-338-339">
+                            Ana səhifə
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active snipcss0-6-337-340">
+                        <span aria-current="location" class="snipcss0-7-340-341">
+                            Xəbərlər
+                        </span>
+                    </li>
+                </ol>
+            </div>
+            <div class="block-body snipcss0-4-334-342">
+                <div class="row snipcss0-5-342-343">
+                    <div class="col-md-8 col-12 snipcss0-6-343-344">
+                        <article class="card news-card-details snipcss0-7-344-345">
+                            <img src="@Model.ImagePath" alt="Qadınlar üçün iş geyimləri" class="card-img-top snipcss0-8-345-346">
+                            <div class="card-body snipcss0-8-345-347">
+                                <h4 class="card-title snipcss0-9-347-348">
+                                    @Model.Subject
+                                </h4>
+                                <span>
+                                    @Model.Description
+                                </span>
+
+                                <div class="news-details-footer snipcss0-9-347-436">
+                                    <p class="card-text news-card-date snipcss0-10-436-437">
+                                        <img src="https://limak.az/new_front/assets/img/icons/calendar.svg" alt="" class="snipcss0-11-437-438">
+                                        <span class="snipcss0-11-437-439">
+                                            @Model.CreatedTime
+                                        </span>
+                                    </p>
+                                    <div class="news-details-share snipcss0-10-436-440">
+                                        <a href="https://www.facebook.com/Limakaz/" class="news-details-share-button snipcss0-11-440-441">
+                                            <img src="https://limak.az/new_front/assets/img/icons/facebook.svg" alt="Facebook" class="snipcss0-12-441-442">
+                                        </a>
+                                        <a href="https://www.instagram.com/limak.az/" class="news-details-share-button snipcss0-11-440-443">
+                                            <img src="https://limak.az/new_front/assets/img/icons/instagram.svg" alt="Instagram" class="snipcss0-12-443-444">
+                                        </a>
+                                        <a href="https://t.me/limak_az" class="news-details-share-button snipcss0-11-440-445">
+                                            <img src="https://limak.az/front/new/img/telegram.png" alt="Telegram" class="snipcss0-12-445-446 style-AABNc" id="style-AABNc">
+                                        </a>
+                                        <a href="https://www.youtube.com/channel/UCCdO-6DgTlxvGIl0_zaQkpA" class="news-details-share-button snipcss0-11-440-447">
+                                            <img src="https://limak.az/new_front/assets/img/icons/youtube.svg" alt="Youtube" class="snipcss0-12-447-448">
+                                        </a>
+                                        <a href="https://www.tiktok.com/limak.az?" class="news-details-share-button snipcss0-11-440-449">
+                                            <img src="https://limak.az/new_front/assets/img/icons/tik-tok.png" alt="tik-tok" class="snipcss0-12-449-450 style-KbTLy" id="style-KbTLy">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <div class="text-center snipcss0-7-344-451">
+                            <a asp-action="Index" class="btn-submit btn-back snipcss0-8-451-452">
+                                <img src="https://limak.az/new_front/assets/img/icons/back.svg" alt="" class="snipcss0-9-452-453">
+                                <span class="snipcss0-9-452-454">
+                                    Geri
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12 snipcss0-6-343-455">
+                        <div class="news-sidebar snipcss0-7-455-456">
+                            <div class="card snipcss0-8-456-457">
+                                <header class="card-header news-sidebar-header snipcss0-9-457-458">
+                                    <h3 class="news-sidebar-title upper snipcss0-10-458-459">
+                                        Di̇gər Xəbərlər
+                                    </h3>
+                                    <img src="https://limak.az/new_front/assets/img/icons/arrow-right-color.svg" alt="" class="snipcss0-10-458-460">
+                                </header>
+                                <div class="news-sidebar-list snipcss0-9-457-461">
+                                    <a href="/az/news-details/biznes-qadinlari-ucun-geyimler-305" class="news-card snipcss0-10-461-462">
+                                        <article class="card news-sidebar-article flex-row snipcss0-11-462-463">
+                                            <img src="https://limakaz.s3.eu-west-2.amazonaws.com/public/news/news-170869741148645.png.jpeg" alt="Biznes qadınları üçün zövqlü geyimlər Amerika və Türkiyədən" class="card-img-left snipcss0-12-463-464">
+                                            <div class="news-sidebar-article-body snipcss0-12-463-465">
+                                                <h4 class="card-title snipcss0-13-465-466">
+                                                    Biznes qadınları üçü...
+                                                </h4>
+                                                <p class="card-text news-card-date snipcss0-13-465-467">
+                                                    <img src="https://limak.az/new_front/assets/img/icons/calendar.svg" alt="" class="snipcss0-14-467-468">
+                                                    <span class="snipcss0-14-467-469">
+                                                        2024-02-23 18:10:11
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </a>
+                                    <a href="/az/news-details/limak-musterilerine-endirimli-turpaketler-pintravel-304" class="news-card snipcss0-10-461-470">
+                                        <article class="card news-sidebar-article flex-row snipcss0-11-470-471">
+                                            <img src="https://limakaz.s3.eu-west-2.amazonaws.com/public/news/news-170860930486491.png.jpeg" alt="Limak müştərilərinə Pin Travel-dan özəl təkliflər və xüsusi endirimlər" class="card-img-left snipcss0-12-471-472">
+                                            <div class="news-sidebar-article-body snipcss0-12-471-473">
+                                                <h4 class="card-title snipcss0-13-473-474">
+                                                    Limak müştərilərinə...
+                                                </h4>
+                                                <p class="card-text news-card-date snipcss0-13-473-475">
+                                                    <img src="https://limak.az/new_front/assets/img/icons/calendar.svg" alt="" class="snipcss0-14-475-476">
+                                                    <span class="snipcss0-14-475-477">
+                                                        2024-02-22 17:41:45
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </a>
+                                    <a href="/az/news-details/Yeni-il-bayraminiz-mubarek-300" class="news-card snipcss0-10-461-478">
+                                        <article class="card news-sidebar-article flex-row snipcss0-11-478-479">
+                                            <img src="https://limakaz.s3.eu-west-2.amazonaws.com/public/news/news-170383622116394.png.jpeg" alt="Yeni il bayramınız mübarək!" class="card-img-left snipcss0-12-479-480">
+                                            <div class="news-sidebar-article-body snipcss0-12-479-481">
+                                                <h4 class="card-title snipcss0-13-481-482">
+                                                    Yeni il bayramınız m...
+                                                </h4>
+                                                <p class="card-text news-card-date snipcss0-13-481-483">
+                                                    <img src="https://limak.az/new_front/assets/img/icons/calendar.svg" alt="" class="snipcss0-14-483-484">
+                                                    <span class="snipcss0-14-483-485">
+                                                        2023-12-29 11:50:21
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </a>
+                                    <a href="/az/news-details/Limak-anbarlarinda-qeyri-is-gunu-olacaq-299" class="news-card snipcss0-10-461-486">
+                                        <article class="card news-sidebar-article flex-row snipcss0-11-486-487">
+                                            <img src="https://limakaz.s3.eu-west-2.amazonaws.com/public/news/news-170383551669065.png.jpeg" alt="Limak anbarlarında qeyri-iş günü olacaq" class="card-img-left snipcss0-12-487-488">
+                                            <div class="news-sidebar-article-body snipcss0-12-487-489">
+                                                <h4 class="card-title snipcss0-13-489-490">
+                                                    Limak anbarlarında q...
+                                                </h4>
+                                                <p class="card-text news-card-date snipcss0-13-489-491">
+                                                    <img src="https://limak.az/new_front/assets/img/icons/calendar.svg" alt="" class="snipcss0-14-491-492">
+                                                    <span class="snipcss0-14-491-493">
+                                                        2023-12-29 11:34:46
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </a>
+                                    <a href="/az/news-details/Axtardığınız-kitablar-Amerikadan-birbaşa-qapınıza-gəlsin-298" class="news-card snipcss0-10-461-494">
+                                        <article class="card news-sidebar-article flex-row snipcss0-11-494-495">
+                                            <img src="https://limakaz.s3.eu-west-2.amazonaws.com/public/news/news-170350665917947.png.jpeg" alt="Axtardığınız kitablar Amerikadan birbaşa qapınıza gəlsin" class="card-img-left snipcss0-12-495-496">
+                                            <div class="news-sidebar-article-body snipcss0-12-495-497">
+                                                <h4 class="card-title snipcss0-13-497-498">
+                                                    Axtardığınız kitabla...
+                                                </h4>
+                                                <p class="card-text news-card-date snipcss0-13-497-499">
+                                                    <img src="https://limak.az/new_front/assets/img/icons/calendar.svg" alt="" class="snipcss0-14-499-500">
+                                                    <span class="snipcss0-14-499-501">
+                                                        2023-12-25 16:05:33
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </a>
+                                    <a href="/az/news-details/Yeni-filiallarimızla-xidmetinizdeyik-297" class="news-card snipcss0-10-461-502">
+                                        <article class="card news-sidebar-article flex-row snipcss0-11-502-503">
+                                            <img src="https://limakaz.s3.eu-west-2.amazonaws.com/public/news/news-170238569749150.png.jpeg" alt="Yeni filiallarımızla xidmətinizdəyik" class="card-img-left snipcss0-12-503-504">
+                                            <div class="news-sidebar-article-body snipcss0-12-503-505">
+                                                <h4 class="card-title snipcss0-13-505-506">
+                                                    Yeni filiallarımızla...
+                                                </h4>
+                                                <p class="card-text news-card-date snipcss0-13-505-507">
+                                                    <img src="https://limak.az/new_front/assets/img/icons/calendar.svg" alt="" class="snipcss0-14-507-508">
+                                                    <span class="snipcss0-14-507-509">
+                                                        2023-12-12 16:54:57
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </a>
+                                    <a href="/az/news-details/Yeni-il-atmosferini-nece-yaratmaq-olar-296" class="news-card snipcss0-10-461-510">
+                                        <article class="card news-sidebar-article flex-row snipcss0-11-510-511">
+                                            <img src="https://limakaz.s3.eu-west-2.amazonaws.com/public/news/news-170229681812672.png.jpeg" alt="Yeni il atmosferini necə yaratmaq olar?" class="card-img-left snipcss0-12-511-512">
+                                            <div class="news-sidebar-article-body snipcss0-12-511-513">
+                                                <h4 class="card-title snipcss0-13-513-514">
+                                                    Yeni il atmosferini...
+                                                </h4>
+                                                <p class="card-text news-card-date snipcss0-13-513-515">
+                                                    <img src="https://limak.az/new_front/assets/img/icons/calendar.svg" alt="" class="snipcss0-14-515-516">
+                                                    <span class="snipcss0-14-515-517">
+                                                        2023-12-11 15:58:26
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
